@@ -164,6 +164,9 @@ def print_n_curcuits(n, Cmode, Fmode, ans, digits): # LPFとHPF
     unit = getunit(n+Cmode+Fmode)
     for i in range(len(ans)):
         print("element {}: {:.{}e} ".format(i+1, sp.N(ans[i]), digits) + unit[i%2])
+    print("--- Latex Output --- ")
+    for i in range(len(ans)):
+        print("element {}: {:.{}e} ".format(i+1, sp.N(ans[i]), digits) + unit[i%2])
 
 # BPFとBEFの出力
 def print_2n_curcuits(n, Cmode, ans, digits): # BPFとBEF
@@ -217,7 +220,7 @@ ans = CFE(f_transfer) # 連分数展開
 # 周波数変換
 if Fmode == 1 and change == 1:
     ans = changefreq_LPF(ans, Cmode, cutoff, R)
-elif Fmode == 2 and change == 2:
+elif Fmode == 2 and change == 1:
     ans = changefreq_HPF(ans, Cmode, cutoff, R)
 elif Fmode == 3:
     ans = changefreq_BPF(ans, Cmode, f1, f2, R)
