@@ -183,6 +183,29 @@ def print_2n_curcuits(n, Cmode, ans, digits): # BPFとBEF
                 print("series")
         print("  {} {:.{}e} ".format(name[i%2], sp.N(ans[i]), digits) + unit[i%2])
 
+# おまけ　Latex形式で出力
+def print_n_curcuits_latex(n, f_transfer, digits, ans, a):
+    print("\n---- result ----\n")
+    print("Transfer function")
+    print("$$ n = {},  {} $$".format(n, sp.latex(f_transfer)))
+    print("Approximate solution")
+    print("$$ {} $$".format(sp.latex(sp.N(f_transfer, digits))))
+    print("the value of elements")
+    unit = getunit(a)
+    for i in range(n):
+        print("$$ element {}: {} (\simeq {})\,\mathrm{{".format(i+1, sp.latex(sp.simplify(ans[i])), sp.N(ans[i], digits))+ unit[i%2]+"} $$")
+
+def print_2n_curcuits_latex(n, f_transfer, digits, ans, a):
+    print("\n---- result ----\n")
+    print("Transfer function")
+    print("$$ n = {},  {} $$".format(n, sp.latex(f_transfer)))
+    print("Approximate solution")
+    print("$$ {} $$".format(sp.latex(sp.N(f_transfer, digits))))
+    print("the value of elements")
+    unit = ['[H]', '[F]']
+    for i in range(2*n):
+        print("$$ element {}-{}: {} (\simeq {})\,\mathrm{{".format((i+2)//2, i%2+1, sp.latex(sp.simplify(ans[i])), sp.N(ans[i], digits))+ unit[i%2]+"} $$")
+
 # ここから実行部分
 
 # input
@@ -232,3 +255,12 @@ if Fmode == 1 or Fmode == 2:
     print_n_curcuits(n, Cmode, Fmode, ans, digits)
 else:
     print_2n_curcuits(n, Cmode, ans, digits)
+
+# latex output
+latex = get_int_input("----------------\n\nNeed latex output?:\n 1: Yes\n 2: No\n", 1, 2)
+
+if latex == 1:
+    if Fmode == 1 or Fmode == 2:
+        print_n_curcuits_latex(n, f_transfer, digits, ans, n+Fmode+Cmode)
+    else:
+        print_2n_curcuits_latex(n, f_transfer, digits, ans, n+Fmode+Cmode)
