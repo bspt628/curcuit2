@@ -164,9 +164,6 @@ def print_n_curcuits(n, Cmode, Fmode, ans, digits): # LPFとHPF
     unit = getunit(n+Cmode+Fmode)
     for i in range(len(ans)):
         print("element {}: {:.{}e} ".format(i+1, sp.N(ans[i]), digits) + unit[i%2])
-    print("--- Latex Output --- ")
-    for i in range(len(ans)):
-        print("element {}: {:.{}e} ".format(i+1, sp.N(ans[i]), digits) + unit[i%2])
 
 # BPFとBEFの出力
 def print_2n_curcuits(n, Cmode, ans, digits): # BPFとBEF
