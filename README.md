@@ -135,3 +135,37 @@ elements group 3 is placed in series
 | キャパシタ | 回路に並列に配置 | 回路に直列に配置 | 
 
 以上のように出力を読み取り回路を設計することで、所望の機能を実現するフィルタを実現することができます。
+
+### おまけ・Latex出力
+最後の選択肢で1を選ぶと、伝達関数と素子の値をLatex形式で出力することができます。
+```
+Need latex output?:
+ 1: Yes
+ 2: No
+```
+以下が出力例です。4次のR-∞ 型正規化LPFの例を示します。
+
+---- result ----
+
+Transfer function
+
+$$ n = 4,  F(s) = \frac{1}{s^{4} + s^{3} \left(\sqrt{2 - \sqrt{2}} + \sqrt{\sqrt{2} + 2}\right) + s^{2} \left(\sqrt{2} + 2\right) + s \left(\sqrt{2 - \sqrt{2}} + \sqrt{\sqrt{2} + 2}\right) + 1} $$
+
+Approximate solution
+
+$$ F(s) = \frac{1}{s^{4} + 2.6131 s^{3} + 3.4142 s^{2} + 2.6131 s + 1.0} $$
+
+
+the value of elements
+
+First element is INDUCTOR
+
+$$ element 1: \frac{1}{\sqrt{2 - \sqrt{2}} + \sqrt{\sqrt{2} + 2}} (\simeq 0.38268)\,\mathrm{[H]} $$
+
+$$ element 2: - \sqrt{\sqrt{2} + 2} - \sqrt{2 - \sqrt{2}} + \sqrt{2} \sqrt{2 - \sqrt{2}} + \sqrt{2} \sqrt{\sqrt{2} + 2} (\simeq 1.0824)\,\mathrm{[F]} $$
+
+$$ element 3: \frac{2 + \frac{3 \sqrt{2}}{2}}{\sqrt{2 - \sqrt{2}} + \sqrt{\sqrt{2} + 2}} (\simeq 1.5772)\,\mathrm{[H]} $$
+
+$$ element 4: - \sqrt{2} \sqrt{\sqrt{2} + 2} - \sqrt{2} \sqrt{2 - \sqrt{2}} + 2 \sqrt{2 - \sqrt{2}} + 2 \sqrt{\sqrt{2} + 2} (\simeq 1.5307)\,\mathrm{[F]} $$
+
+
