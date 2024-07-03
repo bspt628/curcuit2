@@ -155,9 +155,6 @@ Approximate solution
 
 $$ F(s) = \frac{1}{s^{4} + 2.6131 s^{3} + 3.4142 s^{2} + 2.6131 s + 1.0} $$
 
-the value of elements
-
-First element is INDUCTOR
 
 the value of elements
 
